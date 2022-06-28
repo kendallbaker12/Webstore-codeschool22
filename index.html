@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Amazon 2</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- ======= WELCOME PAGE ======= -->
+        <div v-if="page == 'welcome'" id="welcome-page">
+            <h1>Welcome to the Amazon 2.0</h1>
+            <button v-on:click="setPage('store')">Enter Store</button>
+        </div>
+
+        <!-- ======= STORE PAGE ======= -->
+        <div v-else-if="page == 'store'" id="store-page">
+            <product v-for="(product, index) in products" v-bind:item="product" v-bind:addfunction="addToShoppingCart"
+                v-bind:cart="Vuecart" v-bind:key="index">
+            </product>
+        </div>
+
+        <!-- ======= CHECKOUT PAGE ======= -->
+        <div v-else-if="page == 'checkout'" id="checkout-page">
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
